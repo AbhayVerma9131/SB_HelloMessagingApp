@@ -2,9 +2,11 @@ package com.bridgelab.hellomessagingapplication.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -31,5 +33,15 @@ public class HelloController {
     @DeleteMapping()
     public String deleteHello() {
         return "Hello from BridgeLabz (DELETE)";
+    }
+
+        @GetMapping("/query")
+    public String helloWithName(@RequestParam String name) {
+        return "Hello " + name + " from BridgeLabz";
+    }
+
+    @GetMapping("/param/{name}")
+    public String helloWithPath(@PathVariable String name) {
+        return "Hello " + name + " from BridgeLabz";
     }
 }
